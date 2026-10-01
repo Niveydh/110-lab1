@@ -1,22 +1,21 @@
-import * as readline from 'readline/promises';
+//import * as readline from 'readline/promises';
 
-async function main(){
-    const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
+import { LemonadeStand } from "./LemonadeStand";
 
-    try {
-        const answer = await rl.question('Hello! Welcome to the game, enter your name: ', {
-            signal: AbortSignal.timeout(10_000)
-        });
+function main(): void {
+    const stand = new LemonadeStand(20);
 
-        console.log(`You answered: ${answer}`);
-    } catch (err) {
-        console.log('No answer received or the question timed out.');
-    } finally {
-        rl.close();
-    }
+stand.buySupply("cups", 10, 0.25);
+stand.buySupply("lemons", 2, 0.25);
+stand.buySupply("ice", 2, 0.25);
+stand.buySupply("sugar", 2, 0.25);
 
+console.log(stand.inventory.cups);
+console.log(stand.inventory.lemons);
+console.log(stand.inventory.ice);
+console.log(stand.inventory.sugar);
+console.log(stand.cash);
 }
+
+
 main();
