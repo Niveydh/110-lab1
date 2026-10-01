@@ -28,15 +28,14 @@ buySupply(
     this.inventory[supply] += quantity;
 }
 
-sellCup(price: number): void {
+sellCup(price: number): boolean {
     if (
         this.inventory.cups < 1 ||
         this.inventory.ice < this.recipe.icePerCup ||
         this.inventory.lemons < this.recipe.lemonsPerCup ||
         this.inventory.sugar < this.recipe.sugarPerCup
     ) {
-        console.log("Not enough supplies to make lemonade.");
-        return;
+        return false;
     }
 
     this.inventory.cups -= 1;
@@ -45,17 +44,17 @@ sellCup(price: number): void {
     this.inventory.sugar -= this.recipe.sugarPerCup;
 
     this.cash += price;
+
+    return true;
 }
 
 sellCups(quantity: number, pricePerCup: number): number {
     let sold = 0;
 
     for (let i = 0; i < quantity; i++) {
-        const beforeCash = this.cash;
+        const success = this.sellCup(pricePerCup);
 
-        this.sellCup(pricePerCup);
-
-        if (this.cash === beforeCash) {
+        if (!success) {
             break;
         }
 
