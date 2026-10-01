@@ -1,0 +1,10 @@
+User Stories:
+
+
+As a game user, I want to be able to input the amount of lemonade and supplies I need so the game can accurately charge my resources.
+
+As a user I want it to be clear when a new day starts so the game is easy to understand and use.
+
+As a user I want to understand what the weather conditions are so I know what a reasonable amount of lemonade to make
+
+As a user I want to know how much starting capital I have so I can budget my respources correctly

@@ -10,6 +10,8 @@
 		// Allow JSON modules to be imported
 		"resolveJsonModule": true,
 
+		"types": ["node"],
+
 		// Allow JS files to be imported from TS and vice versa
 		"allowJs": true,
 
