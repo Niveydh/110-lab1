@@ -1,6 +1,7 @@
 //import * as readline from 'readline/promises';
 
 import { LemonadeStand } from "./LemonadeStand";
+import { Weather, getDemand } from "./Weather";
 
 function main(): void {
     const stand = new LemonadeStand(20);
@@ -12,9 +13,14 @@ function main(): void {
 
     const sold = stand.sellCups(5, 2);
 
-    console.log(`Cups sold: ${sold}`);
-    console.log("Inventory:", stand.inventory);
-    console.log(`Cash: $${stand.cash}`);
+
+    const weather: Weather = "hot";
+    const demand = getDemand(weather);
+
+    console.log(`Weather: ${weather}`);
+    console.log(`Demand: ${demand}`);
+
+  
 }
 
 
